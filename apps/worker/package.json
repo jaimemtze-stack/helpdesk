@@ -13,7 +13,7 @@
   "dependencies": {
     "@azure/identity": "^4.13.3",
     "@inn/shared": "workspace:*",
-    "bullmq": "^5.81.5",
+    "bullmq": "^6.3.11",
     "nodemailer": "10.0.16",
     "pino": "10.4.0",
     "zod": "3.23.8"
