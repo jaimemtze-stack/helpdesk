@@ -49,9 +49,9 @@ export class SmtpAdapter implements OutboundMailAdapter {
 export type TokenProvider = () => Promise<string>;
 
 /**
- * Microsoft Graph sendMail from the support mailbox. Authentication uses Managed Identity /
- * DefaultAzureCredential; the app registration must be restricted to the mailbox with an
- * Application Access Policy.
+ * Microsoft Graph sendMail from the support mailbox. Authentication uses DefaultAzureCredential
+ * (app registration with a certificate credential, e.g. AZURE_CLIENT_CERTIFICATE_PATH); the app
+ * must be scoped to this mailbox only with Exchange Online RBAC for Applications.
  */
 export class GraphAdapter implements OutboundMailAdapter {
   constructor(

@@ -67,6 +67,8 @@ Detalle y riesgos: [`docs/fases/fase-0.md`](fases/fase-0.md).
 - ✅ `docker compose --profile app up` verificado desde cero con Docker real: migraciones, API, worker, nginx y 4 pruebas E2E contra el stack; Trivy local sin hallazgos altos ni críticos.
 - ⬜ Integrar Playwright al CI (requiere el stack de Compose).
 - ⬜ Rol de BD de la aplicación separado del propietario + `REVOKE UPDATE, DELETE` en `audit_logs`.
+- ⬜ Despliegue continuo según `03-despliegue-hosting.md` §4.8: publicar imágenes (GHCR o ACR) por *digest*, federación OIDC GitHub → Entra ID y entorno `production` con aprobación.
+- ⬜ Operación según `03-despliegue-hosting.md` §4.6 y §4.9: respaldos `pg_dump` cifrados con inmutabilidad (WORM), PITR de 35 días, alertas a Teams.
 
 ## Fase 1 — MVP (desglose)
 

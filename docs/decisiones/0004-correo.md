@@ -7,7 +7,7 @@ El buzón de soporte en Microsoft 365 todavía no existe. El desarrollo y las pr
 
 ## Decisión
 - Interfaces `InboundMailAdapter` y `OutboundMailAdapter` en `apps/worker`.
-- Adaptadores: **Graph** (polling configurable o suscripción a cambios; autenticación con Managed Identity o secreto de aplicación en Key Vault, permiso `Mail.ReadWrite`/`Mail.Send` limitado al buzón por *Application Access Policy*) e **IMAP/SMTP** (alternativa; Mailpit en local).
+- Adaptadores: **Graph** (polling configurable o suscripción a cambios; registro de aplicación con credencial de certificado guardada en Key Vault, permiso `Mail.ReadWrite`/`Mail.Send` limitado al buzón con *RBAC for Applications* de Exchange Online) e **IMAP/SMTP** (alternativa; Mailpit en local).
 - Selección por variable `MAIL_ADAPTER=graph|imap|smtp-mailpit`.
 - El correo entrante se guarda crudo (RFC 822) en almacenamiento privado antes de procesarse, para poder reprocesar.
 - Confianza en el remitente solo si `Authentication-Results` del proveedor indica `dmarc=pass` (o `spf=pass` y `dkim=pass` alineados). Si no, el ticket va al grupo **"Por verificar"** sin respuesta automática.

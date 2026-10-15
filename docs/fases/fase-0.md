@@ -37,5 +37,5 @@ TEST_DATABASE_URL=postgresql://postgres:postgres@localhost:5432/inn_support_test
 |---|---|
 | HIBP falla abierto si no hay red | Se registra un *warning*; desactivable con `HIBP_ENABLED=false`. |
 | `prisma migrate dev` propone borrar `DEFAULT` de columnas generadas | Documentado en `apps/api/prisma/README.md`. |
-| Un `dump.rdb` de Redis (datos de prueba efímeros, sin secretos reales) quedó en el historial de un commit intermedio | Retirado y añadido a `.gitignore`; no contiene datos reales. |
+| Un `dump.rdb` de Redis con datos de prueba se coló en un commit intermedio | Eliminado del historial al migrar a este repositorio y añadido a `.gitignore`. |
 | Vite no pre-empaqueta paquetes CJS del workspace por defecto | `optimizeDeps.include: ['@inn/shared']`. |

@@ -3,7 +3,7 @@
 - **Estado:** aceptado · **Fecha:** 2026-10-15
 
 ## Contexto
-La primera ejecución del CI (PR #1) encontró 37 vulnerabilidades conocidas en dependencias de producción (Fastify 4, NestJS 10, nodemailer 6) y hallazgos de Semgrep sobre la cadena de suministro: acciones de GitHub con etiquetas mutables (la etiqueta `0.28.0` de `trivy-action` ya no existe tras el incidente de esa acción), sin espera para versiones recién publicadas y sin política de confianza en pnpm.
+La primera ejecución del CI (jaimemtze-stack/inncentives#1, antes de migrar a este repositorio) encontró 37 vulnerabilidades conocidas en dependencias de producción (Fastify 4, NestJS 10, nodemailer 6) y hallazgos de Semgrep sobre la cadena de suministro: acciones de GitHub con etiquetas mutables (la etiqueta `0.28.0` de `trivy-action` ya no existe tras el incidente de esa acción), sin espera para versiones recién publicadas y sin política de confianza en pnpm.
 
 ## Decisión
 - **Versiones:** NestJS 11.2.7, Fastify 5.12.5, pino 10, nodemailer 10.0.16 (`pnpm audit --prod` sin hallazgos).

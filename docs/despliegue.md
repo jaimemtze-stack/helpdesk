@@ -1,5 +1,7 @@
 # Guía de despliegue
 
+> La decisión de hospedaje, costos y controles de acceso están en [`03-despliegue-hosting.md`](03-despliegue-hosting.md). Esta guía describe cómo desplegar la aplicación siguiendo esa recomendación.
+
 ## 1. Local (desarrollo)
 
 Requisitos: Docker con Compose v2, Node 22, pnpm 10.
@@ -80,7 +82,7 @@ docker compose --profile app run --rm migrate          # migraciones (job one-sh
 - SPF: `v=spf1 include:spf.protection.outlook.com -all`.
 - DKIM: habilitar en Microsoft 365 Defender y publicar los dos CNAME `selector1/selector2`.
 - DMARC: `v=DMARC1; p=quarantine; rua=mailto:dmarc@<dominio>; adkim=s; aspf=s` (subir a `p=reject` tras 30 días sin falsos positivos).
-- Graph: aplicación de Entra ID con `Mail.ReadWrite` y `Mail.Send` **restringida al buzón de soporte** mediante *Application Access Policy*.
+- Graph: aplicación de Entra ID con `Mail.ReadWrite` y `Mail.Send` **restringida al buzón de soporte** mediante *RBAC for Applications* de Exchange Online (sustituye a las *Application Access Policies*), con credencial de **certificado** en Key Vault, no *client secret*. Detalle en `03-despliegue-hosting.md` §4.5.
 
 ## 3. Respaldos y continuidad
 - RPO 24 h / RTO 8 h (ADR-0007).
