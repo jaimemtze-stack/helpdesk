@@ -53,7 +53,7 @@ ENV NODE_ENV=production
 USER nonroot
 CMD ["dist/main.js"]
 
-FROM nginxinc/nginx-unprivileged:1.30.6-alpine AS web
+FROM nginxinc/nginx-unprivileged:1.31.5-alpine AS web
 # Hosts are injected at start (PORTAL_HOST, AGENT_HOST) by the image's envsubst entrypoint.
 ENV NGINX_ENVSUBST_FILTER=^(PORTAL_HOST|AGENT_HOST)$
 COPY apps/web/nginx-common.conf /etc/nginx/inn-common.conf
