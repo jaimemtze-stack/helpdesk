@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 # Multi-stage build for api, worker and web. Targets: api, worker, web.
-FROM node:22.23.3-bookworm-slim AS base
+FROM node:26.10.0-bookworm-slim AS base
 ENV CI=true
 # Prisma needs libssl3 and the openssl binary to pick its engine; slim images ship neither.
 RUN apt-get update && apt-get install -y --no-install-recommends openssl && rm -rf /var/lib/apt/lists/*
